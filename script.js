@@ -16,8 +16,17 @@ const questions = [
   },
 ];
 
-const question = document.getElementById("question");
-const options = document.getElementById("options");
-const answer = document.getElementById("answer");
+const questionText = document.getElementById("question");
+const optionsText = document.getElementById("options");
+const answerText = document.getElementById("answer");
 const score = document.getElementById("score");
 const nextQuestion = document.getElementById("next-question");
+
+let currentIndex = 0; // Track the current question index, starting at 0
+
+// Function to display the current question in the HTML
+function displayQuestion() {
+  questionText.textContent = questions[currentIndex].question;
+}
+
+displayQuestion(); // Call the function to display the first question when the page loads
