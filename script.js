@@ -49,10 +49,23 @@ function checkAnswer(event) {
   }
 }
 
-// Function to go to the next question when the "Next Question" button is clicked
+// Function to reset the quiz and start over by resetting the current question index and score, and displaying the first question and options in the HTML
+function endSession() {
+  currentIndex = 0; // Reset the current question index to 0 to start over
+  currentScore = 0; // Reset the score to 0 to start over
+  displayQuestion(); // Call the function to display the first question and options in the HTML
+}
+
+// Function to go to the next question when the "Next Question" button is clicked and check if the quiz is finished to display the final score and reset the quiz
 function goToNextQuestion() {
-  currentIndex++; // Increment the current question index to move to the next question
-  displayQuestion(); // Call the function to display the next question and options in the HTML
+  if (currentIndex === questions.length - 1) {
+    // Check if the current question index is at the last question in the array
+    alert(`Quiz finished! Your score: ${currentScore}/${questions.length}`);
+    endSession(); // Call the function to reset the quiz and start over
+  } else {
+    currentIndex++; // Increment the current question index to move to the next question
+    displayQuestion(); // Call the function to display the next question and options in the HTML
+  }
 }
 
 nextQuestion.addEventListener("click", goToNextQuestion); // Add a click event listener to the "Next Question" button to call the function that goes to the next question when clicked
