@@ -27,6 +27,7 @@ let currentIndex = 0; // Track the current question index, starting at 0
 // Function to display the current question and options in the HTML
 function displayQuestion() {
   questionText.textContent = questions[currentIndex].question; // Set the question text in the HTML to the current question's text
+  optionsText.innerHTML = "";
   questions[currentIndex].options.forEach((option) => {
     // Loop through each option for the current question
     const li = document.createElement("li"); // Create a new list item element for each option
@@ -44,5 +45,13 @@ function checkAnswer(event) {
     answerText.textContent = `Oops... The answer was ${questions[currentIndex].answer}`;
   }
 }
+
+// Function to go to the next question when the "Next Question" button is clicked
+function goToNextQuestion() {
+  currentIndex++; // Increment the current question index to move to the next question
+  displayQuestion(); // Call the function to display the next question and options in the HTML
+}
+
+nextQuestion.addEventListener("click", goToNextQuestion); // Add a click event listener to the "Next Question" button to call the function that goes to the next question when clicked
 
 displayQuestion(); // Call the function to display the first question and options when the page loads
