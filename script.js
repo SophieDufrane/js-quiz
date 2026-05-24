@@ -23,6 +23,7 @@ const score = document.getElementById("score");
 const nextQuestion = document.getElementById("next-question");
 
 let currentIndex = 0; // Track the current question index, starting at 0
+let currentScore = 0; // Initialize the score to 0
 
 // Function to display the current question and options in the HTML
 function displayQuestion() {
@@ -41,8 +42,10 @@ function displayQuestion() {
 function checkAnswer(event) {
   if (event.target.textContent === questions[currentIndex].answer) {
     answerText.textContent = `Spot on! The answer is ${questions[currentIndex].answer}`;
+    score.textContent = ++currentScore; // Increment the score by 1 if the answer is correct and update the score in the HTML
   } else {
     answerText.textContent = `Oops... The answer was ${questions[currentIndex].answer}`;
+    score.textContent = currentScore;
   }
 }
 
