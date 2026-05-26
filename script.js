@@ -17,7 +17,7 @@ const questions = [
 ];
 
 const questionText = document.getElementById("question");
-const optionsText = document.getElementById("options");
+const optionsText = document.getElementById("options-container");
 const answerText = document.getElementById("answer");
 const score = document.getElementById("score");
 const nextQuestion = document.getElementById("next-question");
@@ -31,10 +31,10 @@ function displayQuestion() {
   optionsText.innerHTML = "";
   questions[currentIndex].options.forEach((option) => {
     // Loop through each option for the current question
-    const li = document.createElement("li"); // Create a new list item element for each option
-    li.textContent = option; // Set the text content of the list item to the option text
-    li.addEventListener("click", checkAnswer); // Add a click event listener to the list item to check the answer when clicked
-    optionsText.appendChild(li); // Append the list item to the options list in the HTML
+    const button = document.createElement("button"); // Create a new list item element for each option
+    button.textContent = option; // Set the text content of the list item to the option text
+    button.addEventListener("click", checkAnswer); // Add a click event listener to the list item to check the answer when clicked
+    optionsText.appendChild(button); // Append the list item to the options list in the HTML
   });
 }
 
