@@ -32,6 +32,7 @@ function displayQuestion() {
   questions[currentIndex].options.forEach((option) => {
     // Loop through each option for the current question
     const button = document.createElement("button"); // Create a new list item element for each option
+    button.classList.add("option-button"); // Add a class to the list item for styling purposes
     button.textContent = option; // Set the text content of the list item to the option text
     button.addEventListener("click", checkAnswer); // Add a click event listener to the list item to check the answer when clicked
     optionsText.appendChild(button); // Append the list item to the options list in the HTML
