@@ -86,26 +86,45 @@ button {
   width: 40%;
 }
 
+/* ---------------- Options Buttons ---------------- */
 .option-button {
-  background-color: var(--color-orange);
+  background-color: var(--color-pale-orange);
+  border-color: var(--color-pale-orange); /* ton sur ton */
+  width: 100%;
+  color: var(--color-text);
+}
+
+.option-button:hover,
+.option-button:disabled {
+  background-color: transparent;
+  border: var(--color-orange) 1px solid;
+}
+
+.option-button-correct {
+  background-color: var(--color-green);
+  border-color: var(--color-green); /* ton sur ton */
   width: 100%;
   color: var(--color-bg);
 }
 
-.option-button:hover {
-  background-color: var(--color-green);
+.option-button-incorrect {
+  background-color: var(--color-orange);
+  border-color: var(--color-orange); /* ton sur ton */
+  width: 100%;
   color: var(--color-bg);
 }
 
+/* ---------------- Next Question Button ---------------- */
 #next-question {
-  background-color: var(--color-pale-orange);
-  border-color: var(--color-pale-orange); /* ton sur ton */
+  background-color: var(--color-green);
+  border-color: var(--color-green); /* ton sur ton */
   width: 20%;
   margin-top: 1.5rem;
-  color: var(--color-text);
+  color: var(--color-bg);
 }
 
 #next-question:hover {
   background-color: transparent;
   border: var(--color-green) 1px solid;
+  color: var(--color-text);
 }

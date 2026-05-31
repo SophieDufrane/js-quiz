@@ -42,12 +42,18 @@ function displayQuestion() {
 // Function to check if the selected answer is correct and display the appropriate message in the HTML
 function checkAnswer(event) {
   if (event.target.textContent === questions[currentIndex].answer) {
-    answerText.textContent = `Spot on! The answer is ${questions[currentIndex].answer}`;
+    answerText.textContent = "Spot on!"; // Set the answer text in the HTML to a success message if the answer is correct
+    event.target.classList.replace("option-button", "option-button-correct"); // Replace the class of the clicked button to indicate a correct answer
     score.textContent = ++currentScore; // Increment the score by 1 if the answer is correct and update the score in the HTML
   } else {
     answerText.textContent = `Oops... The answer was ${questions[currentIndex].answer}`;
-    score.textContent = currentScore;
+    event.target.classList.replace("option-button", "option-button-incorrect"); // Replace the class of the clicked button to indicate an incorrect answer
+    score.textContent = currentScore; // Keep the score the same if the answer is incorrect and update the score in the HTML
   }
+  // Disable all option buttons after an answer is selected to prevent multiple answers
+  optionsText
+    .querySelectorAll("button")
+    .forEach((button) => (button.disabled = true));
 }
 
 // Function to reset the quiz and start over by resetting the current question index and score, and displaying the first question and options in the HTML
