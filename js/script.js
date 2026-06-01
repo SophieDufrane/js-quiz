@@ -29,7 +29,8 @@ let currentScore = 0; // Initialize the score to 0
 function displayQuestion() {
   nextQuestion.style.display = "none"; // Hide the "Next Question" button until an answer is selected
   questionText.textContent = questions[currentIndex].question; // Set the question text in the HTML to the current question's text
-  optionsText.innerHTML = "";
+  optionsText.innerHTML = ""; // Clear the options container in the HTML before adding new options for the current question
+  answerText.innerHTML = ""; // Clear the answer text in the HTML before displaying the result of the current question
   questions[currentIndex].options.forEach((option) => {
     // Loop through each option for the current question
     const button = document.createElement("button"); // Create a new list item element for each option

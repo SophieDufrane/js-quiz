@@ -64,6 +64,14 @@ A vanilla JavaScript quiz app to test and reinforce core JS concepts through mul
 
 - Add CSS classes and JS logic for correct/incorrect button feedback, disable all buttons after selection
 
+### Iteration 10 — Next Question Button Visibility
+
+- Hide Next Question button by default, show only after answer is validated
+
+### Iteration 11 — Fix Answer Feedback Persistence
+
+- Reset answer text with `innerHTML = ""` in `displayQuestion()` instead of toggling display
+
 ## Refactoring & Decisions
 
 [Technical choices, why]
