@@ -60,6 +60,10 @@ A vanilla JavaScript quiz app to test and reinforce core JS concepts through mul
 
 - Refactor HTML: add header/main/footer, replace li with buttons
 
+### Iteration 9 — Visual Feedback on Answer Selection
+
+- Add CSS classes and JS logic for correct/incorrect button feedback, disable all buttons after selection
+
 ## Refactoring & Decisions
 
 [Technical choices, why]

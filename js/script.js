@@ -27,6 +27,7 @@ let currentScore = 0; // Initialize the score to 0
 
 // Function to display the current question and options in the HTML
 function displayQuestion() {
+  nextQuestion.style.display = "none"; // Hide the "Next Question" button until an answer is selected
   questionText.textContent = questions[currentIndex].question; // Set the question text in the HTML to the current question's text
   optionsText.innerHTML = "";
   questions[currentIndex].options.forEach((option) => {
@@ -54,6 +55,7 @@ function checkAnswer(event) {
   optionsText
     .querySelectorAll("button")
     .forEach((button) => (button.disabled = true));
+  nextQuestion.style.display = "block"; // Show the "Next Question" button after an answer is selected
 }
 
 // Function to reset the quiz and start over by resetting the current question index and score, and displaying the first question and options in the HTML
