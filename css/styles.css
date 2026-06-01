@@ -71,11 +71,14 @@ button {
   align-items: center;
   gap: 1rem;
   width: 100%;
+  margin: 2rem 0;
 }
 
-#question {
+#question,
+#answer {
   font-size: 1.2rem;
   font-weight: bold;
+  margin: 0;
 }
 
 #options-container {
@@ -127,4 +130,16 @@ button {
   background-color: transparent;
   border: var(--color-green) 1px solid;
   color: var(--color-text);
+}
+
+/* ---------------- Score ---------------- */
+#score {
+  font-size: 1.5rem;
+}
+
+#final-score {
+  font-family: var(--font-title);
+  letter-spacing: 0.1rem;
+  color: var(--color-green);
+  font-size: 2rem;
 }

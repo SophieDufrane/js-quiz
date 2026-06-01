@@ -72,6 +72,11 @@ A vanilla JavaScript quiz app to test and reinforce core JS concepts through mul
 
 - Reset answer text with `innerHTML = ""` in `displayQuestion()` instead of toggling display
 
+### Iteration 12 — Final Score Screen
+
+- Replace quiz container content with final score feedback using `innerHTML`
+- Remove `#score` from HTML and `score.textContent` from JS, track score via `currentScore` only
+
 ## Refactoring & Decisions
 
 [Technical choices, why]

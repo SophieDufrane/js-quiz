@@ -21,6 +21,7 @@ const optionsText = document.getElementById("options-container");
 const answerText = document.getElementById("answer");
 const score = document.getElementById("score");
 const nextQuestion = document.getElementById("next-question");
+const quizContainer = document.getElementById("quiz-container");
 
 let currentIndex = 0; // Track the current question index, starting at 0
 let currentScore = 0; // Initialize the score to 0
@@ -46,11 +47,11 @@ function checkAnswer(event) {
   if (event.target.textContent === questions[currentIndex].answer) {
     answerText.textContent = "Spot on!"; // Set the answer text in the HTML to a success message if the answer is correct
     event.target.classList.replace("option-button", "option-button-correct"); // Replace the class of the clicked button to indicate a correct answer
-    score.textContent = ++currentScore; // Increment the score by 1 if the answer is correct and update the score in the HTML
+    ++currentScore; // Increment the score by 1 if the answer is correct
   } else {
     answerText.textContent = `Oops... The answer was ${questions[currentIndex].answer}`;
     event.target.classList.replace("option-button", "option-button-incorrect"); // Replace the class of the clicked button to indicate an incorrect answer
-    score.textContent = currentScore; // Keep the score the same if the answer is incorrect and update the score in the HTML
+    currentScore; // The score remains the same if the answer is incorrect
   }
   // Disable all option buttons after an answer is selected to prevent multiple answers
   optionsText
@@ -68,9 +69,9 @@ function endSession() {
 
 // Function to go to the next question when the "Next Question" button is clicked and check if the quiz is finished to display the final score and reset the quiz
 function goToNextQuestion() {
+  // Check if the current question index is at the last question in the array
   if (currentIndex === questions.length - 1) {
-    // Check if the current question index is at the last question in the array
-    alert(`Quiz finished! Your score: ${currentScore}/${questions.length}`);
+    quizContainer.innerHTML = `<div><p id="score">Quiz finished!</p><p id="final-score">Your score: ${currentScore}/${questions.length}</p></div>`;
     endSession(); // Call the function to reset the quiz and start over
   } else {
     currentIndex++; // Increment the current question index to move to the next question
