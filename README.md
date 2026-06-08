@@ -77,6 +77,12 @@ A vanilla JavaScript quiz app to test and reinforce core JS concepts through mul
 - Replace quiz container content with final score feedback using `innerHTML`
 - Remove `#score` from HTML and `score.textContent` from JS, track score via `currentScore` only
 
+### Iteration 13 — Play Again Functionality
+
+- Add `#result-container` section in HTML with final score and Play Again button
+- Toggle visibility between `#quiz-container` and `#result-container` at end of quiz
+- Reset `currentIndex` and `currentScore` in `endSession()`, triggered by Play Again button
+
 ## Refactoring & Decisions
 
 [Technical choices, why]

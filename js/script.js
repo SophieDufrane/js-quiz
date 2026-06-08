@@ -22,12 +22,15 @@ const answerText = document.getElementById("answer");
 const score = document.getElementById("score");
 const nextQuestion = document.getElementById("next-question");
 const quizContainer = document.getElementById("quiz-container");
+const resultContainer = document.getElementById("result-container");
+const playAgainButton = document.getElementById("play-again");
 
 let currentIndex = 0; // Track the current question index, starting at 0
 let currentScore = 0; // Initialize the score to 0
 
 // Function to display the current question and options in the HTML
 function displayQuestion() {
+  resultContainer.style.display = "none"; // Hide the result container when displaying a new question
   nextQuestion.style.display = "none"; // Hide the "Next Question" button until an answer is selected
   questionText.textContent = questions[currentIndex].question; // Set the question text in the HTML to the current question's text
   optionsText.innerHTML = ""; // Clear the options container in the HTML before adding new options for the current question
@@ -64,6 +67,7 @@ function checkAnswer(event) {
 function endSession() {
   currentIndex = 0; // Reset the current question index to 0 to start over
   currentScore = 0; // Reset the score to 0 to start over
+  quizContainer.style.display = "flex"; // Show the quiz container in the HTML to start the quiz again
   displayQuestion(); // Call the function to display the first question and options in the HTML
 }
 
@@ -71,8 +75,10 @@ function endSession() {
 function goToNextQuestion() {
   // Check if the current question index is at the last question in the array
   if (currentIndex === questions.length - 1) {
-    quizContainer.innerHTML = `<div><p id="score">Quiz finished!</p><p id="final-score">Your score: ${currentScore}/${questions.length}</p></div>`;
-    endSession(); // Call the function to reset the quiz and start over
+    quizContainer.style.display = "none"; // Hide the quiz container in the HTML when the quiz is finished
+    resultContainer.style.display = "block"; // Show the result container in the HTML when the quiz is finished
+    score.textContent = `Your Score: ${currentScore} / ${questions.length}`; // Set the score text in the HTML to display the final score and total number of questions
+    playAgainButton.addEventListener("click", endSession); // Add a click event listener to the "Play Again" button to call the function that resets the quiz and starts over when clicked
   } else {
     currentIndex++; // Increment the current question index to move to the next question
     displayQuestion(); // Call the function to display the next question and options in the HTML
