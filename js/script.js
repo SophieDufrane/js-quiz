@@ -1,18 +1,84 @@
 const questions = [
   {
-    question: "What does 'typeof null' return in JavaScript?",
-    options: ["null", "undefined", "object", "boolean"],
-    answer: "object",
-  },
-  {
-    question: "Which method removes duplicates from an array?",
-    options: ["filter()", "map()", "new Set()", "reduce()"],
-    answer: "new Set()",
+    question: "What is the difference between let and var?",
+    options: [
+      "let is block-scoped, var is function-scoped",
+      "var is block-scoped, let is function-scoped",
+      "They are identical",
+      "let can only store strings",
+    ],
+    answer: "let is block-scoped, var is function-scoped",
   },
   {
     question: "What does '===' check compared to '=='?",
     options: ["Value only", "Value and type", "Type only", "Reference only"],
     answer: "Value and type",
+  },
+  {
+    question: "What does typeof null return in JavaScript?",
+    options: ["null", "undefined", "object", "boolean"],
+    answer: "object",
+  },
+  {
+    question: "Which array method creates a new array with transformed values?",
+    options: ["forEach()", "filter()", "map()", "push()"],
+    answer: "map()",
+  },
+  {
+    question: "What is a closure in JavaScript?",
+    options: [
+      "A function that can access variables from its outer scope",
+      "A variable declared with const",
+      "A way to close a browser window",
+      "A type of loop",
+    ],
+    answer: "A function that can access variables from its outer scope",
+  },
+  {
+    question: "What does JSON.parse() do?",
+    options: [
+      "Converts a JavaScript object to JSON text",
+      "Converts JSON text into a JavaScript object",
+      "Removes invalid JSON values",
+      "Formats JSON for display",
+    ],
+    answer: "Converts JSON text into a JavaScript object",
+  },
+  {
+    question: "What is event bubbling?",
+    options: [
+      "An event that only runs on buttons",
+      "An event moving from child elements up to parent elements",
+      "A way to stop all events",
+      "A method for delaying execution",
+    ],
+    answer: "An event moving from child elements up to parent elements",
+  },
+  {
+    question: "What does Array.prototype.filter() return?",
+    options: [
+      "A modified original array",
+      "A new array containing matching elements",
+      "A single boolean value",
+      "A string representation of the array",
+    ],
+    answer: "A new array containing matching elements",
+  },
+  {
+    question: "What is the difference between null and undefined?",
+    options: [
+      "null means an intentional empty value, undefined means not assigned",
+      "They mean exactly the same thing",
+      "undefined is only for numbers",
+      "null is only used in arrays",
+    ],
+    answer:
+      "null means an intentional empty value, undefined means not assigned",
+  },
+  {
+    question: "Which keyword declares a constant reference?",
+    options: ["let", "var", "const", "static"],
+    answer: "const",
   },
 ];
 
