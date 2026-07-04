@@ -101,6 +101,7 @@ function displayQuestion() {
   questionText.textContent = questions[currentIndex].question; // Set the question text in the HTML to the current question's text
   optionsText.innerHTML = ""; // Clear the options container in the HTML before adding new options for the current question
   answerText.innerHTML = ""; // Clear the answer text in the HTML before displaying the result of the current question
+  answerText.className = ""; // Reset the answer feedback styling for the next question
   questions[currentIndex].options.forEach((option) => {
     // Loop through each option for the current question
     const button = document.createElement("button"); // Create a new list item element for each option
@@ -114,10 +115,12 @@ function displayQuestion() {
 // Function to check if the selected answer is correct and display the appropriate message in the HTML
 function checkAnswer(event) {
   if (event.target.textContent === questions[currentIndex].answer) {
+    answerText.className = "answer-feedback answer-correct";
     answerText.textContent = "Spot on!"; // Set the answer text in the HTML to a success message if the answer is correct
     event.target.classList.replace("option-button", "option-button-correct"); // Replace the class of the clicked button to indicate a correct answer
     ++currentScore; // Increment the score by 1 if the answer is correct
   } else {
+    answerText.className = "answer-feedback answer-incorrect";
     answerText.textContent = `Oops... The answer was ${questions[currentIndex].answer}`;
     event.target.classList.replace("option-button", "option-button-incorrect"); // Replace the class of the clicked button to indicate an incorrect answer
     currentScore; // The score remains the same if the answer is incorrect
