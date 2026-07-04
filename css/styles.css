@@ -22,7 +22,6 @@ body {
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  background-color: var(--color-bg);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -34,6 +33,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem 1rem;
 }
 
 header {
@@ -71,8 +71,9 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: 100%;
-  margin: 2rem 0;
+  width: min(100%, 920px);
+  margin: 2rem auto;
+  padding: 1.25rem;
 }
 
 #question,
@@ -83,11 +84,10 @@ button {
 }
 
 #options-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
-  width: 40%;
+  width: 100%;
 }
 
 /* ---------------- Options Buttons ---------------- */
@@ -123,8 +123,9 @@ button {
 #play-again {
   background-color: var(--color-green);
   border-color: var(--color-green); /* ton sur ton */
-  width: 25%;
+  width: min(100%, 18rem);
   margin-top: 1.5rem;
+  padding-inline: 1.25rem;
   color: var(--color-bg);
 }
 
@@ -145,4 +146,26 @@ button {
   letter-spacing: 0.1rem;
   color: var(--color-green);
   font-size: 2rem;
+}
+
+@media (min-width: 640px) {
+  #quiz-container,
+  #result-container {
+    padding: 1.75rem;
+  }
+
+  #options-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  main {
+    padding: 2.5rem 2rem;
+  }
+
+  #quiz-container,
+  #result-container {
+    padding: 2.25rem;
+  }
 }
