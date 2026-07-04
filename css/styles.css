@@ -33,7 +33,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 1rem;
 }
 
 header {
@@ -176,15 +175,24 @@ button {
 
 /* ---------------- Score ---------------- */
 #score {
-  font-size: 1.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 14px;
+  color: var(--color-orange);
+  background: linear-gradient(
+    180deg,
+    rgba(243, 155, 135, 0.22) 0%,
+    rgba(243, 155, 135, 0.08) 100%
+  );
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
 }
 
-#final-score {
-  font-family: var(--font-title);
-  letter-spacing: 0.1rem;
-  color: var(--color-green);
-  font-size: 2rem;
-}
+/* ---------------- Media ---------------- */
 
 @media (min-width: 640px) {
   #quiz-container,

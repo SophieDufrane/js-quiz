@@ -123,7 +123,6 @@ function checkAnswer(event) {
     answerText.className = "answer-feedback answer-incorrect";
     answerText.textContent = `Oops... The answer was ${questions[currentIndex].answer}`;
     event.target.classList.replace("option-button", "option-button-incorrect"); // Replace the class of the clicked button to indicate an incorrect answer
-    currentScore; // The score remains the same if the answer is incorrect
   }
   // Disable all option buttons after an answer is selected to prevent multiple answers
   optionsText
@@ -136,6 +135,7 @@ function checkAnswer(event) {
 function endSession() {
   currentIndex = 0; // Reset the current question index to 0 to start over
   currentScore = 0; // Reset the score to 0 to start over
+  score.textContent = "Quiz finished! Your score: 0"; // Reset the score text before restarting
   quizContainer.style.display = "flex"; // Show the quiz container in the HTML to start the quiz again
   displayQuestion(); // Call the function to display the first question and options in the HTML
 }
@@ -146,8 +146,7 @@ function goToNextQuestion() {
   if (currentIndex === questions.length - 1) {
     quizContainer.style.display = "none"; // Hide the quiz container in the HTML when the quiz is finished
     resultContainer.style.display = "block"; // Show the result container in the HTML when the quiz is finished
-    score.textContent = `Your Score: ${currentScore} / ${questions.length}`; // Set the score text in the HTML to display the final score and total number of questions
-    playAgainButton.addEventListener("click", endSession); // Add a click event listener to the "Play Again" button to call the function that resets the quiz and starts over when clicked
+    score.textContent = `Quiz finished! Your score: ${currentScore} / ${questions.length}`; // Set the score text in the HTML to display the final score and total number of questions
   } else {
     currentIndex++; // Increment the current question index to move to the next question
     displayQuestion(); // Call the function to display the next question and options in the HTML
@@ -155,5 +154,6 @@ function goToNextQuestion() {
 }
 
 nextQuestion.addEventListener("click", goToNextQuestion); // Add a click event listener to the "Next Question" button to call the function that goes to the next question when clicked
+playAgainButton.addEventListener("click", endSession); // Add the replay listener once so it does not stack after each completed quiz
 
 displayQuestion(); // Call the function to display the first question and options when the page loads
