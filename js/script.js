@@ -116,12 +116,12 @@ function displayQuestion() {
 // Function to check if the selected answer is correct and display the appropriate message in the HTML
 function checkAnswer(event) {
   if (event.target.textContent === questions[currentIndex].answer) {
-    answerText.className = "answer-feedback answer-correct";
+    answerText.className = "answer-correct";
     answerText.textContent = "Spot on!";
     event.target.classList.replace("option-button", "option-button-correct"); // Replace the class of the clicked button to indicate a correct answer
     ++currentScore;
   } else {
-    answerText.className = "answer-feedback answer-incorrect";
+    answerText.className = "answer-incorrect";
     answerText.textContent = `Oops... The answer was ${questions[currentIndex].answer}`;
     event.target.classList.replace("option-button", "option-button-incorrect"); // Replace the class of the clicked button to indicate an incorrect answer
   }
@@ -138,7 +138,7 @@ function goToNextQuestion() {
   if (currentIndex === questions.length - 1) {
     quizContainer.style.display = "none";
     resultContainer.style.display = "block";
-    score.textContent = `Quiz finished! Your score: ${currentScore} / ${questions.length}`;
+    scoreText.textContent = `Your score: ${currentScore} / ${questions.length}`;
   } else {
     currentIndex++;
     displayQuestion();
@@ -149,7 +149,6 @@ function goToNextQuestion() {
 function endSession() {
   currentIndex = 0;
   currentScore = 0;
-  score.textContent = "Quiz finished! Your score: 0";
   quizContainer.style.display = "flex";
   displayQuestion();
 }
